@@ -1,0 +1,72 @@
+4-2
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class assignment4q2 {
+    private int totalPrice;
+    private String status;
+
+
+    public assignment4q2(int price, String status)
+    {
+        this.totalPrice=price;
+        this.status=status;
+    }
+
+    public int getPrice()
+    {
+        return this.totalPrice;
+    }
+
+    public void setPrice(int price)
+    {
+        this.totalPrice=price;
+    }
+
+    public String getStatus()
+    {
+        return this.status;
+    }
+
+    public void setStatus(String status)
+    {
+        this.status=status;
+    }
+    public static ArrayList<assignment4q2> listOfOrders(ArrayList<assignment4q2> orders)
+    {
+        Iterator<assignment4q2> iterator=orders.iterator();
+        while(iterator.hasNext())
+        {
+            assignment4q2 order=iterator.next();
+            if(order.getPrice()>10000 && order.getStatus().equals("Accepted/Completed")) {}
+            else
+            {
+                iterator.remove();
+            }
+        }
+        return orders;
+    }
+    public static void main(String[] args)
+    {
+        assignment4q2 order1=new assignment4q2(8000,"Processing");
+        assignment4q2 order2=new assignment4q2(5000,"Processing");
+        assignment4q2 order3=new assignment4q2(12000,"Accepted/Completed");
+        assignment4q2 order4=new assignment4q2(11500,"Processing");
+        assignment4q2 order5=new assignment4q2(9000,"Accepted/Completed");
+        assignment4q2 order6=new assignment4q2(15000,"Processing");
+
+        ArrayList<assignment4q2> orders=new ArrayList<assignment4q2>();
+        orders.add(order1);
+        orders.add(order2);
+        orders.add(order3);
+        orders.add(order4);
+        orders.add(order5);
+        orders.add(order6);
+
+        orders=listOfOrders(orders);
+
+
+        orders.forEach((order) -> { System.out.println(order.getStatus()+" "+order.getPrice()); });
+    }
+}
+

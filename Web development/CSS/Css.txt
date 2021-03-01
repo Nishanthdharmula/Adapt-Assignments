@@ -1,0 +1,264 @@
+Q-1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+h1 {
+background-color: blue;
+}
+body{
+background-color: yellow;
+}
+div{
+background-color: grey;
+}
+    </style>
+</head>
+<body>
+<fieldset>
+<h1>CSS Background-color example!</h1>
+<section>
+    <div>This is a text inside a div element.</div>
+</section>
+<p>This paragraph has its own background color.</p>
+<section>
+    <div>We are still in the div element.</div>
+</section>
+</fieldset>
+</body>
+</html>
+
+
+Q-2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+body{
+background-color: skyblue;
+}
+
+    </style>
+</head>
+<body>
+<fieldset>
+    <h1>This is heading 1</h1>
+    <strike><h2>This is heading 2</h2></strike>
+    <U><h3>This is heading 3</h3></U>
+    <h4>This is heading 4</h4>
+
+</fieldset>
+</body>
+</html>
+
+Q-3
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+body{
+background-color: skyblue;
+}
+
+    </style>
+</head>
+<body>
+<fieldset>
+    <h1>THIS IS SOME TEXT.</h1>
+    <p>
+        This is some text
+    </p>
+    <p>
+        This is some text
+    </p>
+
+</fieldset>
+</body>
+</html>
+
+
+Q-4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        fieldset{
+        background-color: skyblue;
+        }
+        a {
+        color: red;
+        }
+    </style>
+</head>
+<body>
+<fieldset>
+<a href="http://www.spring.io">This is a link</a>
+</fieldset>
+</body>
+</html>
+
+
+Q-5
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+table{
+    width: 10px
+    }
+    th{
+    text-align: left;
+    }
+    table, th, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    }
+</style>
+</head>
+<body>
+<fieldset>
+<table>
+    <tr>
+        <th>Firstname:</th>
+        <th>Lastname:</th>
+    </tr>
+    <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+    </tr>
+    <tr>
+        <td>Lois</td>
+        <td>Griffin</td>
+    </tr>
+</table>
+</fieldset>
+</body>
+</html>
+
+
+
+Q-6
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th{
+        background-color: Green;
+        color: white;
+        }
+        table{
+        border:2px solid green;
+        }
+        th{
+        border:2px solid green;
+        }
+        td{
+        border:2px solid green;
+        }
+    </style>
+</head>
+<body>
+<fieldset>
+<table>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <td>Peter</td>
+        <td>Griffin</td>
+        <td>$100</td>
+
+    </tr>
+    <tr>
+        <td>Lois</td>
+        <td>Griffin</td>
+        <td>$150</td>
+    </tr>
+    <tr>
+        <td>Joe</td>
+        <td>Swanson</td>
+        <td>$300</td>
+    </tr>
+    <tr>
+        <td>Cleveland</td>
+        <td>Brown</td>
+        <td>$250</td>
+    </tr>
+</table>
+</fieldset>
+</body>
+</html>
+
+
+Q-7
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    p{
+    border: 1px solid red;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 490px;
+    }
+        div{
+        border:2px dotted #86E307;
+        width: 490px
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p>IE8 supports the outline properties</p>
+</div>
+</body>
+</html>
+
+
+
+Q-8
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h3{
+        background-color: #AED6F1;
+        border: 10px solid black;
+        margin-bottom: 3px;
+        }
+        h4{
+        background-color: #AED6F1;
+        border: 5px solid black;
+        margin-bottom: 3px;
+        }
+        p{
+        background-color: #AED6F1;
+        border: 1px solid black;
+        margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+<fieldset>
+<h3>Some Text.</h3>
+<br>
+<h4>Some Text.</h4>
+<br>
+<p>Some Text.</p>
+<br>
+</fieldset>
+</body>
+</html>
+

@@ -1,0 +1,1117 @@
+
+
+
+Q-1
+package com.spring.core;
+
+public class Address {
+	private String street;
+	private String city;
+	private String state;
+	private int zip;
+	private String country;
+	
+	
+	
+	
+	public Address(String street, String city, String state, int zip, String country) {
+		super();
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.country = country;
+	}
+	public String getStreet() {
+		return street;
+	}
+	public void setStreet(String street) {
+		this.street = street;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public int getZip() {
+		return zip;
+	}
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	@Override
+	public String toString() {
+		return "street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + ", country="
+				+ country ;
+	}
+	
+
+
+}
+
+
+package com.spring.core;
+
+public class Customer {
+	private int customerId;
+	private String customerName;
+	private long customerContact;
+	private Address customerAddress;
+	public int getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public long getCusterContact() {
+		return customerContact;
+	}
+	public void setCustomerContact(long customerContact) {
+		this.customerContact = customerContact;
+	}
+	public Address getCustomerAddress() {
+		return customerAddress;
+	}
+	public void setCustomerAddress(Address customerAddress) {
+		this.customerAddress = customerAddress;
+	}
+	public void printdetails() {
+		System.out.println("Customer details :"+"\n Customer id : "+customerId+ "\n Customer name: "+customerName+"\n Customer contact: "+customerContact+"\n Customer Address : "+customerAddress);
+		
+	}
+
+}
+
+
+package com.spring.core;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test {
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		Customer customer = (Customer) context.getBean("customer");
+		customer.printdetails();
+
+		}
+
+}
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+<bean id ="customer" class = "com.spring.core.Customer" >
+<property name = "customerId" value="123"/>
+<property name = "customerName" value="ram"/>
+<property name = "customerContact" value="9664547744"/>
+<property name = "customerAddress" ref = "address"/>
+
+
+
+</bean>
+
+
+<bean id = "address"  class = "com.spring.core.Address" >
+<!-- <property name = "street" value ="sri nagar" />
+<property name="city" value ="warangal"/>
+<property name = "state"  value = "T.S."/>
+<property name = "zip" value ="506015"/>
+<property name = "country" value = "India"/> -->
+
+<constructor-arg index="0" value ="sri nagar"/>
+<constructor-arg index="1" value ="warangal"/>
+<constructor-arg index="2" value ="T.S."/>
+<constructor-arg index="3" value ="506015"/>
+<constructor-arg index="4" value ="India"/>
+
+
+</bean>
+
+
+</beans
+q-2
+package org.spring.core2;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class Question {
+	private String questionId;
+	private String question;
+	
+	public String getQuestionId() {
+		return questionId;
+	}
+	public void setQuestionId(String questionId) {
+		this.questionId = questionId;
+	}
+	public String getQuestion() {
+		return question;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+	
+	/*
+	 * private List<String> answers;
+	 * 
+	 * public List<String> getAnswers() { return answers; } public void
+	 * setAnswers(List<String> answers) { this.answers = answers; }
+	 */
+	/*
+	 * private Set<String> answers;
+	 * 
+	 * public Set<String> getAnswers() { return answers; } public void
+	 * setAnswers(Set<String> answers) { this.answers = answers; }
+	 */
+	
+	private Map<Integer,String> answers;
+	
+	
+	public Map<Integer, String> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(Map<Integer, String> answers) {
+		this.answers = answers;
+	}
+	public void printQuestion() {
+		System.out.println("question id : "+questionId+" Question: "+question);
+		
+		/*
+		 * for(String l : answers) { System.out.println("Answers are: \n"+ l);
+		 */
+		
+		for(Map.Entry<Integer,String> l : answers.entrySet()) {
+			System.out.println(l);
+		}
+	}
+
+
+Test1 class:
+
+package org.spring.core2;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring1.xml");
+		Question question = (Question) context.getBean("question");
+		question.printQuestion();
+	}
+}
+
+Spring1.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+<bean id="question" class=" org.spring.core2.Question">
+  <property name="questionId" value="1"/>
+  <property name="question" value="Name Top 5 Indiab cricketers"/>
+  <property name ="answers" >
+<!-- <list>
+  <value>sachin </value>
+  <value>dhoni </value>
+  <value>dravid </value>
+  <value>kohli </value>
+  <value>rohith </value>
+
+</list> -->
+
+<!-- <set>
+ <value>sachin </value>
+ <value> dhoni </value>
+ <value> dravid</value>
+ <value>kohli</value>
+ <value>rohith </value>
+  
+</set> -->
+
+<map>
+<entry key ="1" value ="sachin "/>
+<entry key ="2" value =" dhoni "/>
+<entry key ="3" value =" dravid"/>
+<entry key ="4" value kohli"/>
+<entry key ="5" value ="rohith "/>
+
+</map>
+</property>
+</bean>
+</beans>
+Q-3
+
+Package com.spring.core3;
+	
+
+	import org.springframework.stereotype.Component;
+	
+
+	@Component
+	public class BankAccount {
+		private long accountId;
+		private String accountHolderName;
+		private String accountType;
+		private int accountBalance;
+		
+		public long getAccountId() {
+			return accountId;
+		}
+		
+		public void setAccountId(long accountId) {
+			this.accountId = accountId;
+		}
+		
+		public String getAccountHolderName() {
+			return accountHolderName;
+		}
+		
+		public void setAccountHolderName(String accountHolderName) {
+			this.accountHolderName = accountHolderName;
+		}
+		
+		public String getAccountType() {
+			return accountType;
+		}
+		
+		public void setAccountType(String accountType) {
+			this.accountType = accountType;
+		}
+		
+		public int getAccountBalance() {
+			return accountBalance;
+		}
+		
+		public void setAccountBalance(int accountBalance) {
+			this.accountBalance = accountBalance;
+		}
+
+
+Package com.spring.core3
+public interface BankAccountRepository {
+	public double getBalance(long accountId);
+	public double updateBalance(long accountId, double newBalance);
+	}
+
+package com.spring.core3;
+import org.springframework.stereotype.Component;
+@Component
+	public class BankAccountRepositoryImpl implements BankAccountRepository{
+		 double initialBalance=100000;
+	
+
+			public double getBalance(long accountId) {
+				System.out.println("Account balance is: "+initialBalance);
+				return 0;
+			}
+	
+
+			public double updateBalance(long accountId, double newBalance) {
+				
+				System.out.println("Account balance is: "+newBalance);
+				return 0;
+			}
+	}
+
+package com.spring.core3;
+	
+
+	public interface BankAccountService {
+	public double withdraw(long accountId, double balance);
+	public double deposit(long accountId, double balance);
+	public double getBalance(long accountId);
+	public boolean fundTransfer(long fromAccount, long toAccount, double amont);
+	}
+
+
+
+
+package com.spring.core3;
+	
+
+	import java.util.Scanner;
+	
+
+	import org.springframework.stereotype.Component;
+	
+
+	@Component
+	public class BankAccountServiceImpl implements BankAccountService 
+	{
+		double withdrawAmount;
+		double depositAmount;
+		int initialBalance= 100000;
+		public double withdraw(long accountId, double withdrawAmount) {
+			
+			System.out.println("The amount that is withdrawn is: "+withdrawAmount);
+			return 0;
+		}
+		
+		public double deposit(long accountId, double depositAmount) {
+			
+			System.out.println("The amount that is deposited is: "+depositAmount);
+			return 0;
+		}
+		
+		public double getBalance(long accountId) 
+		{
+			System.out.println("Enter: 1.Deposit \n 2.Withdrawl");
+			Scanner sc= new Scanner(System.in);
+			int choice = sc.nextInt();
+			if(choice==1) {
+				System.out.println("The amount in "+accountId+" after depositing "+depositAmount+" is: "+(initialBalance+depositAmount ) );}
+			else
+				System.out.println("The amount in "+accountId+" after with drwaing "+withdrawAmount+" is: "+(initialBalance-withdrawAmount ) );
+			sc.close();
+			return 0;
+			
+		}
+		
+		public boolean fundTransfer(long fromAccount, long toAccount, double amont) {
+			return false;
+		}
+		
+	
+
+	}
+
+
+
+package com.spring.core3;
+
+import java.util.Scanner;
+	
+
+	import org.springframework.stereotype.Component;
+	
+
+	@Component
+	public class Controller {
+		double withdrawAmount;
+		double depositAmount;
+		int initialBalance= 100000;
+		public double withdraw(long accountId, double withdrawAmount) {
+			this.withdrawAmount=withdrawAmount;
+			System.out.println("The amount that is withdrawn is: "+withdrawAmount);
+			return 0;}
+		public double deposit(long accountId, double depositAmount) {
+			this.depositAmount= depositAmount;
+			System.out.println("The amount that is deposited is: "+depositAmount);
+					return 0;}
+		public double getBalance(long accountId) {
+			System.out.println("Enter the respective number please: 1.Did you just Deposited? \n 2.Did you just Withdrawl? \n 3.Neither depoisted nor withdrawn");
+			Scanner sc= new Scanner(System.in);
+			int choice = sc.nextInt();
+			if(choice==1) {
+				System.out.println("The amount in "+accountId+" after depositing "+depositAmount+" is: "+(initialBalance+depositAmount ) );}
+			if(choice==2) {
+				System.out.println("The amount in "+accountId+" after with drwaing "+withdrawAmount+" is: "+(initialBalance-withdrawAmount ) );}
+			if(choice==3) System.out.println("The account balance is: "+initialBalance);
+			sc.close();
+			return 0;
+			}
+		public boolean fundTransfer(long fromAccount, long toAccount, double amount) {
+			
+			return false;}
+	}
+
+package com.spring.core3;
+	
+
+	import org.springframework.context.ApplicationContext;
+	import org.springframework.context.support.ClassPathXmlApplicationContext;
+	
+
+	public class Test {
+		 public static void main( String[] args )
+		    {
+		        @SuppressWarnings("resource")
+				ApplicationContext context = new ClassPathXmlApplicationContext("q3.xml");
+		        Controller b = (Controller)context.getBean("controller");
+		        b.deposit(375345,10000);
+		        b.withdraw(375345, 500);
+		        b.getBalance(375345);
+		    }
+	}
+
+
+Q-4
+package q4;
+	
+
+	import org.springframework.stereotype.Component;
+	
+
+	@Component
+	public class BankAccount {
+		private long accountId;
+		private String accountHolderName;
+		private String accountType;
+		private int accountBalance;
+		
+		public long getAccountId() {
+			return accountId;
+		}
+		
+		public void setAccountId(long accountId) {
+			this.accountId = accountId;
+		}
+		
+		public String getAccountHolderName() {
+			return accountHolderName;
+		}
+		
+		public void setAccountHolderName(String accountHolderName) {
+			this.accountHolderName = accountHolderName;
+		}
+		
+		public String getAccountType() {
+			return accountType;
+		}
+		
+		public void setAccountType(String accountType) {
+			this.accountType = accountType;
+		}
+		
+		public int getAccountBalance() {
+			return accountBalance;
+		}
+		
+		public void setAccountBalance(int accountBalance) {
+			this.accountBalance = accountBalance;
+		}
+
+
+
+
+q-5
+package org.spring.core5;
+
+public class Company {
+    private String name;
+    private String location;
+ 
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getLocation() {
+        return location;
+    }
+    @Required
+    public void setLocation(String location) {
+        this.location = location;
+    }
+ 
+    @Override
+    public String toString() {
+        return "Company [name=" + name + ", location=" + location + "]";
+    }
+
+}
+
+
+
+Employee class:
+
+package org.spring.core5;
+
+import javax.annotation.Resource;
+import javax.inject.Inject;
+
+public class Employee {
+    private String id;
+    private String name;
+    
+	/*
+	 * @Resource(name="company") private Company company;
+	 */
+    @Inject
+    private Company company;
+ 
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public Company getCompany() {
+        return company;
+    }
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+ 
+    public void printlog() {
+        System.out.println("Employee [id=" + id + ", name=" + name + ", company=" + company.toString() + "]");
+    }
+
+}
+
+
+package org.spring.core5;
+
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test5 {
+
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring5.xml");
+		Employee employee = (Employee) context.getBean("employee");
+		employee.printlog();
+	}
+}
+spring5.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+    
+    <context:annotation-config />
+ 
+    <bean id="company" class="org.spring.core5.Company">
+        <property name="name" value="hero " />
+        <!-- <property name="location" value="warangal " />
+ -->    </bean>
+ 
+    <bean id="employee" class=" org.spring.core5.Employee">
+        <property name="id" value="123" />
+        <property name="name" value="ram " />
+    </bean>
+</beans>
+
+
+Q-6
+package com.spring.core6;	
+		
+
+		import org.springframework.beans.factory.annotation.Autowired;
+		import org.springframework.context.annotation.Bean;
+		import org.springframework.context.annotation.Configuration;
+		import org.springframework.context.annotation.PropertySource;
+		import org.springframework.core.env.Environment;
+		
+
+		@Configuration
+		@PropertySource("classpath:db.properties")
+		@PropertySource("classpath:root.properties")
+		public class DBConfiguration {
+		
+
+			@Autowired
+		    Environment env;
+			
+			@Bean
+		    public DBConnection getDBConnection() {
+				System.out.println("Getting DBConnection Bean for App: "+env.getProperty("APP_NAME"));
+				DBConnection dbConnection = new DBConnection(env.getProperty("DB_DRIVER_CLASS"), env.getProperty("DB_URL"), env.getProperty("DB_USERNAME"), env.getProperty("DB_PASSWORD").toCharArray());
+		        return dbConnection;
+		    }
+			
+		}
+
+package com.spring.core6;
+	
+
+	import java.sql.Connection;
+	import java.sql.DriverManager;
+	import java.sql.SQLException;
+	
+
+	public class DBConnection {
+	
+
+		private String driverClass;
+		private String dbURL;
+		private String userName;
+		private char[] password;
+		private Connection con;
+	
+
+		public DBConnection(String driverClass, String dbURL, String userName, char[] password) {
+			this.driverClass = driverClass;
+			this.dbURL = dbURL;
+			this.userName = userName;
+			this.password = password;
+		}
+	
+
+		public Connection getConnection() {
+			if (this.con != null)
+				return con;
+	
+
+			Connection con = null;
+			try {
+				System.out.println("Creating DB Connection");
+				Class.forName(driverClass);
+				con = DriverManager.getConnection(dbURL, userName, String.valueOf(password));
+				System.out.println("Successfully Created DB Connection");
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
+			this.con = con;
+			return con;
+		}
+	
+
+		public void close() {
+			System.out.println("DBConnection close called");
+			if (this.con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+
+
+
+#MYSQL Database Configurations
+	DB_DRIVER_CLASS=com.mysql.jdbc.Driver
+	DB_URL=jdbc:mysql://localhost:3306/jdbcdb
+	DB_USERNAME=ram
+	DB_PASSWORD=winn123
+
+
+APP_NAME=PropertySource Example
+
+
+q-7
+
+Package com.spring.core7;
+	
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Component;
+	
+
+	@Component
+	public class Car {
+		   private String make;
+		    private int model;
+		    @Autowired
+		     private Engine engine;
+		    private int horsePower;
+			public String getMake() {
+				return make;
+			}
+			public void setMake(String make) {
+				this.make = make;
+			}
+			public int getModel() {
+				return model;
+			}
+			public void setModel(int model) {
+				this.model = model;
+			}
+			public Engine getEngine() {
+				return engine;
+			}
+			public void setEngine(Engine engine) {
+				this.engine = engine;
+			}
+			public int getHorsePower() {
+				return horsePower;
+			}
+			public void setHorsePower(int horsePower) {
+				this.horsePower = horsePower;
+			}
+		    
+	}
+
+
+package com.spring.core7;
+	
+
+	import org.springframework.stereotype.Controller;
+	
+
+	@Controller
+	public class Engine {
+		  private int capacity;
+		    private int horsePower;
+		    private int numberOfCylinders;
+			public int getCapacity() {
+				return capacity;
+			}
+			public void setCapacity(int capacity) {
+				this.capacity = capacity;
+			}
+			public int getHorsePower() {
+				return horsePower;
+			}
+			public void setHorsePower(int horsePower) {
+				this.horsePower = horsePower;
+			}
+			public int getNumberOfCylinders() {
+				return numberOfCylinders;
+			}
+			public void setNumberOfCylinders(int numberOfCylinders) {
+				this.numberOfCylinders = numberOfCylinders;
+			}
+	}
+
+
+package com.spring.core7;
+	
+
+	public class SpELOper {
+		private boolean equal;
+	    private boolean notEqual;
+	    private boolean greaterThanOrEqual;
+	    private boolean and;
+	    private boolean or;
+	    private String addString;
+		public boolean isEqual() {
+			return equal;
+		}
+		public void setEqual(boolean equal) {
+			this.equal = equal;
+		}
+		public boolean isNotEqual() {
+			return notEqual;
+		}
+		public void setNotEqual(boolean notEqual) {
+			this.notEqual = notEqual;
+		}
+		public boolean isGreaterThanOrEqual() {
+			return greaterThanOrEqual;
+		}
+		public void setGreaterThanOrEqual(boolean greaterThanOrEqual) {
+			this.greaterThanOrEqual = greaterThanOrEqual;
+		}
+		public boolean isAnd() {
+			return and;
+		}
+		public void setAnd(boolean and) {
+			this.and = and;
+		}
+		public boolean isOr() {
+			return or;
+		}
+		public void setOr(boolean or) {
+			this.or = or;
+		}
+		public String getAddString() {
+			return addString;
+		}
+		public void setAddString(String addString) {
+			this.addString = addString;
+		}
+	}
+
+
+
+package com.spring.core7;
+	
+
+	import org.springframework.context.ApplicationContext;
+	import org.springframework.context.support.ClassPathXmlApplicationContext;
+	
+
+	public class Test 
+	{
+	    public static void main( String[] args ) {
+	    	@SuppressWarnings("resource")
+			ApplicationContext context = new ClassPathXmlApplicationContext("q7.xml");
+	    	@SuppressWarnings("unused")
+			SpELOper spelOperators = (SpELOper) context.getBean("SpELOper");
+	    	@SuppressWarnings("unused")
+			Car car =(Car)context.getBean("someCar");
+	    	@SuppressWarnings("unused")
+			Engine engine= (Engine)context.getBean("engine");
+	    }
+	}
+
+<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns = "http://www.springframework.org/schema/beans"
+	   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+
+	 <bean id="engine" class=" com.spring.core7.Engine">
+	   <property name="capacity" value="3200"/>
+	   <property name="horsePower" value="250"/>
+	   <property name="numberOfCylinders" value="6"/>
+	</bean>
+	<bean id="someCar" class="com.spring.core7.Car">
+	   <property name="make" value="Some make"/>
+	   <property name="model" value="Some model"/>
+	   <property name="engine" value="#{engine}"/>
+	   <property name="horsePower" value="#{engine.horsePower}"/>
+	</bean>
+	<bean id="SpELOper" class=" com.spring.core7.SpELOper">
+	   <property name="equal" value="#{1 == 1}"/>
+	   <property name="notEqual" value="#{1 lt 1}"/>
+	   <property name="greaterThanOrEqual" value="#{someCar.engine.numberOfCylinders >= 6}"/>
+	   <property name="and" value="#{someCar.horsePower == 250 and someCar.engine.capacity lt 4000}"/>
+	   <property name="or" value="#{someCar.horsePower > 300 or someCar.engine.capacity > 3000}"/>
+	   <property name="addString" value="#{someCar.model + ' manufactured by ' + someCar.make}"/>
+	</bean>
+	   
+	
+	</beans>
+
+q-8
+
+package org.spring.core8;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+public class Employee{
+	private String name;
+	private int id;
+	private int saraly;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId (int id) {
+		this.id = id;
+	}
+	public int getSalary () {
+		return salary;
+	}
+	public void setSalary (int salary) {
+		this. salary = salary;
+	}
+	
+	public void studentData() {
+		System.out.println("Name: "+name+"\Id : "+id +"\nSalary: "+salary);
+	}
+	
+	public void myInIt() {
+		System.out.println("Initializing bean using init method");
+	}
+	public void myDestroy() {
+		System.out.println("Initializing bean using destroy method");
+	}
+	
+	@PostConstruct
+	public void intializingBean() {
+		System.out.println("Initializing bean using PostConstruct");
+	}
+	@PreDestroy
+	public void destroyingbean() {
+		System.out.println("Destroying bean using PreDestroy");
+	}
+	
+
+}
+
+Test8 class:
+
+package org.spring.core8;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test8 {
+
+	public static void main(String[] args) {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring8.xml");
+		context.registerShutdownHook();
+		Employee employee = (Employee) context.getBean("employee ");
+		employee. employee Data();
+	}
+}
+Spring8.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+<bean id ="student" class="org.spring.core8. Employee " init-method="myInIt" destroy-method="myDestroy" >
+<property name = "name" value="Nishanth "/>
+<property name="id " value="123"/>
+<property name="salary " value="35000"/>
+
+</bean>
+<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor">
+</bean>
+</beans>
+
+q-9
+package org.spring.core9;
+
+public class Sample1 {
+	private String hello;
+	public String getHello() {
+		return hello;
+	}
+
+	public void setHello(String hello) {
+		this.hello = hello;
+	}
+	
+	public void printlog() {
+		System.out.println(hello);
+		System.out.println("This is ram");
+	}
+	
+	public void init() {
+		System.out.println("Initialized the bean");
+	}
+	public void destroy() {
+		System.out.println("Destroyed the bean");
+	}
+
+}
+
+Test9 Class:
+
+package org.spring.core9;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test9 {
+
+	public static void main(String[] args) {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring9.xml");
+		context.registerShutdownHook();
+		Sample1 sample1 = (Sample1) context.getBean("sample");
+		sample1.printlog();
+	}
+}
+
+spring9.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <bean id = "sample" class=" org.spring.core9.Sample1" init-method="init" destroy-method="destroy">
+ <property name="hello" value="Hello World!!"/>
+ </bean>
+ 
+ </beans>
+
+q-10
+public class Company implements ApplicationContextAware{
+    String companyName ;
+    ApplicationContext applicationContext;
+    Model model;
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this. companyName = companyName;
+	}
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		 this.applicationContext=applicationContext;	
+	}
+	public String getModelName(String  modelBeanName)
+    {
+        model=(Model) applicationContext.getBean(modelBeanName);
+        String modelName=capital.getModelName();
+        return modelName;
+    }	
+}
+
+Package org.spring.mvc10;
+
+public class Model {
+	String modelName;
+
+	public String getmodelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this. modelName = modelName;
+	}	
+
+}
+
+Package com.spring.core10;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class Application
+{
+    public static void main( String[] args )
+    {
+    	 @SuppressWarnings("resource")
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring10.xml");
+    	 Company company Obj = (Company) context.getBean("company");
+    	 System.out.println("Company name:"+company Obj.getcompany Name()+"  Model Name:"+company Obj.getModelName("model"));
+    }
+}
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd" >
+<bean id="country" class="org.spring.core10.Company">
+  <property name="companyName" value="Honda "></property>
+
+</bean>
+<bean id="capital" class=" org.spring.core10.Model">
+<property name="modelName" value="v3 "></property>
+
+</bean>
+
+</beans>

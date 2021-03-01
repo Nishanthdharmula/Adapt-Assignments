@@ -1,0 +1,31 @@
+Assignment4-4
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.function.Predicate;
+
+public class assignment404 {
+    public ArrayList<String> removeOddLength(ArrayList<String> employeeList){
+        Predicate<String> word = w -> w.length()%2==0;
+        employeeList.removeIf(word);
+        return employeeList;
+    }
+    public static void main(String[] args) {
+        Scanner scan= new Scanner(System.in);
+
+        ArrayList<String> al= new ArrayList<String>();
+
+        System.out.print("enter the number of Strings you want to insert : ");
+        int i= scan.nextInt();
+
+        for (int j=0;j<i;j++){
+
+            System.out.print("enter the word : ");
+            String s= scan.next();
+
+            al.add(s);
+        }
+        new assignment404().removeOddLength(al).forEach(n -> System.out.println(n));
+        scan.close();
+    }
+}
+

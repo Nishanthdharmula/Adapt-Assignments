@@ -1,0 +1,29 @@
+401
+@FunctionalInterface
+ interface Math {
+    int operations(int a, int b);
+}
+ class assignment4001{
+    public static void main(String[] args){
+        Math addition= (a,b) -> (a + b);
+        System.out.println("addition -> "+ addition.operations(10,20));
+
+        Math substraction= (a,b) -> (a - b);
+        System.out.println("substraction -> "+ substraction.operations(10,20));
+
+        Math multiply= (a,b) -> (a * b);
+        System.out.println("multiply -> "+ multiply.operations(10,20));
+
+        Math division= (a,b) -> (b / a);
+        System.out.println("division -> "+ division.operations(10,20));
+
+        Math Safedivision= (a,b) -> {
+            if (b == 0) return 0;
+            return b / a;
+        };
+        System.out.println("division -> "+ division.operations(10,20));
+
+
+    }
+}
+

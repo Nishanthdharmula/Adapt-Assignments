@@ -1,0 +1,1520 @@
+Q-1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+  margin-top:70px;
+  background-color: lightYellow;
+}
+li{
+  font-size:18px;
+  padding-top:15px;
+}
+
+p{
+  background-color:#EEEEEE;
+  padding:10px;
+  border-radius:5px;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">MS Dhoni</h1>
+                <h2 class="text-center"> Best Indian Captain</h2>
+                <div class="thumbnail">
+                    <img src="./img/images.jpg" >
+                    <div class=" caption text-center">
+                        THALA
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1  col-md-offset-1">
+                <h3 class="text-center"><u> Awards</u></h3>
+                <ul>
+                    <li class>"ICC ODI Player of the Year: 2008, 2009"</li>
+                    <li>"Padma Shri in India's fourth-highest civilian award, in 2009." </li>
+                    <li> "Rajiv Gandhi Khel Ratna, India's highest honor given for achievement in sports, 2007–08"</li>
+                    <li> "The coolest man in world cricket, MS Dhoni delivers when it most matters."</li>
+                    <li> "Honorary doctorate degree by De Montfort University in August 2011."</li>
+                    <li> "Padma Bhushan, India's third-highest civilian award in the Republic of India, 2018."</li>
+                </ul>
+                <h4 class="text-center"><u> Records </u></h4>
+                <ul>
+                    <li> "Won all ICC Tournament"</li>
+                    <li> “Scored more than 100 half centuries”</li>
+                    <li> "Most no of sixes by an Indian"</li>
+                    <li> "won the ICC World Twenty20"</li>
+                    <footer><cite>-In 2011</cite></footer>
+                    <li> "ICC Cricket World Cup"</li>
+                    <footer><cite>-In 2011</cite></footer>
+                    <li> "ICC Champions Trophy"</li>
+                    <footer><cite>-In 2013</cite></footer>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+        <hr>
+        <p>Read more about MS Dhoni on Wikipedia.</p>
+    </footer>
+</div>
+
+</body>
+</html>
+
+
+q-2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+  font-family: 'Anaheim';
+  font-size: 1.2em;
+}
+
+#outside {
+  background-color: skyblue;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+form {
+  /* Just to center the form on the page */
+  margin: 0 auto;
+  width: 70%;
+  /* To see the limits of the form */
+  padding: 1em;
+  border: 1px solid lightyellow;
+  border-radius: 1em;
+
+}
+fieldset {
+  border:1px solid black;
+  margin: 20px;
+ }
+button {
+  margin: .5em;
+  font-size: 1em;
+  text-transform: capitalize;
+  background-color: Grey;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 2px;
+
+}
+
+#submitbutton {
+  display: flex;
+  justify-content: center;
+}
+    </style>
+</head>
+<body>
+<div id="outside">
+    <form id="survey-form" action="/my-handling-form-page" method="post">
+        <h1 id="title">Application for Lovely Professional</h1>
+        <p id="description"><b>Note:</b> Form should submited at least 30 days prior to the Admission date</p>
+
+        <!-- ------------------Personal Details---------------------------- -->
+        <fieldset>
+            <!-- groups of widgets that share the same purpose, for styling and semantic purposes -->
+            <legend>Personal Details</legend>
+            <!-- formally describes the purpose of the fieldset it is included inside. -->
+            <div class="form-group">
+                <label  for="name">Name:</label>
+                <input type="text" required id="name" name="user_name" placeholder="Enter name here">  </div>
+            <div class="form-group">
+                <label  for="name">Father Name:</label>
+                <input type="text" required id="Father name" name="Father_name" placeholder="Enter Father name here">  </div>
+            <div class="form-group">
+                <label  for="name">Mother Name:</label>
+                <input type="text" required id="Mother name" name="Mother_name" placeholder="Enter Mother name here">  </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="Address" id="address" name="Address" placeholder="Enter address here">  </div>
+            <div>
+                <label id="email-label" for="Email">Email:</label>
+                <input type="email" required id="email" name="user_email" placeholder="Enter email here">  </div>
+            <div>
+                <label id="number-label" for="number">Phone Number:</label>
+                <input type="number" id="number" name="user_name" placeholder="Enter 10 digit number" min="1" max="9"> </div>
+            <div>
+            <label>Date of Birth:</label>
+            <input type="date" name="bday">
+            </div>
+
+            <!-- ------------------Radio Buttons-------------------------------- -->
+            <div>
+                <label for="name">Gender</label>
+                <p>
+                    <input type="radio" name="gender" value="male" checked> Male<br>
+                    <input type="radio" name="gender" value="female"> Female<br>
+                    <input type="radio" name="gender" value="other"> Other
+                </p>
+            </div>
+
+
+        </fieldset>
+        <!-- ------------------Eduction-------------------------------- -->
+        <fieldset>
+            <legend>Eduction info</legend>
+            <div class="form-group">
+                <label>10th CGPA:</label>
+                <input type="text" required id="marks" name="10th_marks" placeholder="Enter your CGPA">  </div>
+            <div class="form-group">
+                <label>Inter CGPA:</label>
+                <input type="text" required id="12th marks" name="12th_marks" placeholder="Enter your CGPA">  </div>
+            <p>Upload Your Mark sheets here:
+            <button>Attach Files</button></p>
+            </fieldset>
+        <!-- ------------------Courses-------------------------------- -->
+        <fieldset>
+            <h1>Courses</h1>
+            <p>
+                <input type="checkbox" name="Engineering" value="Engineer" checked>Engineering <br>
+                <input type="checkbox" name="MBA" value="MBA"> MBA<br>
+                <input type="checkbox" name="Photography" value="Photography"> Photography<br>
+                <input type="checkbox" name="BBA" value="BBA"> BBA<br>
+            </p>
+        </fieldset>
+        <!-- ------------------Streem-------------------------------- -->
+        <fieldset>
+            <h1>Streem</h1>
+            <p>
+                <input type="checkbox" name="AE" value="AE" checked>AE <br>
+                <input type="checkbox" name="ME" value="ME"> ME<br>
+                <input type="checkbox" name="CSE" value="CSE"> CSE<br>
+                <input type="checkbox" name="ECE" value="ECE"> ECE<br>
+                <input type="checkbox" name="EEE" value="EEE"> EEE<br>
+            </p>
+        </fieldset>
+        <!-- ------------------Streem-------------------------------- -->
+
+<div id="submitbutton">
+    <button type="submit" id="submit">submit</button>  </div>
+
+    </form>
+</div>
+</body>
+</html>
+
+
+Q-3
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallax</title>
+    <style>
+        body, html{
+height: 100%;
+margin:0;
+font-size: 16px;
+font-family: "Lato", sans-serif;
+font-weight:400;
+line-height:1.8em;
+color:#666;
+}
+.pimg1, .pimg2,.pimg3{
+position:relative;
+opacity:0.70;
+background-repeat:no-repeat;
+background-attachment:fixed;
+}
+.pimg1{
+background-image:url('./img/csk.jpg');
+background-size:cover;
+background-position:center;
+min-height:100%;
+}
+.pimg2{
+background-image:url('./img/csk1.jpg');
+background-size:cover;
+background-position:center;
+min-height:100%;
+}
+.pimg3{
+background-image:url('./img/csk2.jpg');
+background-size:cover;
+background-position:center;
+min-height:100%;
+}
+
+.section{
+text-align:center;
+padding:50px 80px;
+}
+.section-light{
+background-color:white;
+color:blue;
+}
+.section-dark{
+background-color:black;
+color:yellow;
+}
+.ptext{
+position:absolute;
+top: 50%;
+width:100%;
+text-align:center;
+color:skyblue;
+font-size:27px;
+letter-spacing:8px;
+text-transform: uppercase;
+}
+.ptext .border{
+background-color:lightblue;
+color:yellow;
+padding:10px;
+}
+.ptext .border.trans{
+background-color:transparent;
+}
+
+    </style>
+</head>
+<body>
+<div class="pimg1">
+    <div class="ptext">
+<span class="border">
+Chennai Super Kings
+</span>
+    </div>
+</div>
+<section class="section section-light">
+    <h2>Batsmen</h2>
+    <p>
+        MS Dhoni, Suresh Raina, Ambati Rayudu, N Jagadeesan, Faf Du Plessis, Cheteshwar Pujara, Ruturaj Gaikwad
+    </p>
+</section>
+
+<div class="pimg2">
+    <div class="ptext">
+<span class="border">
+Chennai Super Kings
+</span>
+    </div>
+</div>
+<section class="section section-dark">
+    <h2>All-Rounders</h2>
+    <p>
+        Sam Curran, Ravi Jadeja, Dwayne Bravo, Mitchell Santner, Moeen Ali, Krishnappa Gowtham, Harisankar Reddy.
+    </p>
+</section>
+
+<div class="pimg3">
+    <div class="ptext">
+<span class="border trans">
+Chennai Super Kings
+</span>
+    </div>
+</div>
+<section class="section section-dark">
+    <h2>Blowers</h2>
+    <p>
+        Josh Hazlewood, Shardul Thakur, Karn Sharma, KM Asif, Imran Tahir, R. Sai Kishore, Bhagvath Varma, Deepak Chahar, Lungi Ngidi.
+    </p>
+</section>
+</body>
+</html>
+
+
+Q-4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+    <style>
+    *{
+margin:0;
+padding:0;
+}
+
+body{
+margin:0;
+font-family: Arial, "Helvetica Neue",Helvetica, sans-serif;
+font-size: 20px;
+color:black;
+line-height:1.6;
+}
+
+#showcase{
+background-image:url('./img/bike1.jpg');
+background-size:cover;
+background-position:center;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-context:center;
+align-items:center;
+padding:0 20px;
+}
+#showcase h1{
+font-size: 50px;
+line-height:1.2;
+}
+
+#showcase p{
+font-size:20px;
+}
+
+#showcase .button{
+font-size:18px;
+text-decoration:none;
+color:black;
+border:maroon 1px solid;
+padding:10px 20px;
+border-radius:10px;
+text-size:center;
+margin-top:20px;
+}
+#showcase .button:hover{
+background:black;
+color:white;
+}
+
+#section-a{
+padding:20px;
+background:skyblue;
+text-align:center;
+}
+#section-c{
+display:flex;
+}
+
+#section-c{
+display:flex;
+}
+#section-c div{
+padding:20px;
+}
+#section-c.box-1, #section
+background: Green;
+color:#fff;
+}
+#section-c .box-2{
+background: #f9f9f9;
+color:#fff;
+}
+h5, h6, h7 {
+font-family: Arial, "Helvetica Neue",Helvetica, sans-serif;
+font-size: 30px;
+}
+
+
+    </style>
+</head>
+<body>
+<header id="showcase">
+    <h1>welcome to RE services</h1>
+    <p>Royal Enfield launching new model</p>
+    <a href="#" class="button">read more</a>
+    </header>
+<section id="showcase-a">
+    <p>Royal Enfield is the oldest motorcycle brand to be in continuous production,
+    with its first bike rolling off the line way back in 1901. Now based in Chennai,
+    it's owned by the Eicher Group, and has witnessed something of a resurgence in recent times.
+    This growth has allowed it to step outside its comfort zone of single-cylinder modern classics
+    and try its hand at bikes like the Himalayan and 650 twins, both of which have been rather
+    successful projects. For the future, the 346cc UCE motor has been made BS6-compliant,
+    while a new, modern 400-500cc motor is being developed (codenamed J platform) to be the
+        spiritual successor to the current 500cc UCE engine, which will not make it to BS6.</p>
+
+</section>
+<section id="section-c">
+    <div class="box1">
+        <h5>classic 350</h5>
+        About Classic 350. Royal Enfield Classic 350 is a cruiser bike available at a starting price of Rs. 1,64,145 in India. It is available in 7 variants and 13 colours with top variant price starting from Rs. 1,89,115. The Classic 350 is powered by 346cc BS6 engine which develops a power of 19.1 bhp and a torque of 28 Nm.
+    </div>
+    <div class="box2">
+        <h6>Himalaya</h6>
+        Royal Enfield Himalayan is a commuter bike available at a starting price of Rs. 1,92,653 in India. ... The Himalayan is powered by 411cc BS6 engine which develops a power of 24.3 bhp and a torque of 32 Nm. With both front and rear disc brakes, Royal Enfield Himalayan comes up with anti-locking braking system.
+    </div>
+
+    <div class="box3">
+        <h7>Interceptor</h7>
+        The Interceptor is a British motorcycle made by Royal Enfield between 1960 and 1970. The 700 Interceptor introduced in 1960 was a modified version of the company's 692 cc Constellation model. In 1962, the company introduced the 750 Interceptor which evolved constantly until the end of production in 197
+    </div>
+</section>
+</body>
+
+Q-5
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+            initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href=
+            "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity=
+                  "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <title>Restaurant Website</title>
+    <style>
+    body{
+    background-color: skyblue;
+    }
+        .nav-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    width: 100%;
+    padding: 0 ;
+    }
+
+.nav-flex-row li {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 20px 15px;
+}
+
+.nav-flex-row li a {
+    font-family: 'Big Shoulders Text', cursive;
+    color: #000;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+.nav-flex-row li a:hover{
+    background: Orange;
+}
+
+.section-intro {
+    height: 820px;
+    background-image: url(img/foddiee.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-intro h1 {
+    text-align: center;
+    color: maroon;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.section-intro header {
+    display: flex;
+    flex: 4;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-to-register-wrapper {
+    flex: 1;
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    background-color: #f3f3f3c0;
+    padding: 50px 30px;
+}
+
+.link-to-register {
+    color: #ffffff;
+    display: block;
+    border: 2px solid #ffffff;
+    padding: 5px 10px;
+}
+
+a.link-to-register:hover {
+    background-color: #ffffff;
+    color: #95999e;
+    text-decoration: none;
+}
+
+.about-section p,
+.about-section h3 {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    font-family: 'Big Shoulders Text', cursive;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+
+.carousel-inner {
+    height: 700px;
+}
+
+.row-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 30px 20px;
+}
+
+.btn.btn-primary {
+    font-family: 'Big Shoulders Text', cursive;
+    color: #ffffff;
+    background-color: #95999e;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 5px 10px;
+    letter-spacing: 2px;
+    border: 0;
+}
+
+.btn.btn-primary:hover {
+    background-color: #747474;
+}
+.opening-time,
+.contact-adress {
+    flex: 1;
+    margin: 30px 20px;
+    font-size: 1.2em;
+}
+
+.form-group p {
+    font-size: 1.2em;
+}
+
+.opening-time p span,
+.contact-adress p span {
+    display: block;
+}
+
+@media (min-width:577px) and (max-width: 800px) {
+
+    .section-intro {
+        height: 500px;
+    }
+
+    .about-section p,
+    .about-section h3 {
+        font-size: 20px;
+    }
+
+    .carousel-inner {
+        height: auto;
+    }
+
+    .row-flex {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .section-intro {
+        height: 300px;
+    }
+
+    .about-section {
+        padding: 30px;
+    }
+
+    .section-intro h1 {
+        font-size: 2em;
+    }
+
+    .about-section p,
+    .about-section h3 {
+        font-size: 15px;
+    }
+
+    .carousel-inner {
+        height: auto;
+    }
+
+    .row-flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row-flex h3 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .form-group p {
+        font-size: 15px;
+    }
+
+    .opening-time p span,
+    .contact-adress p span {
+        font-size: 15px;
+        text-align: center;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+
+<!-- navbar  -->
+<nav>
+    <ul class="nav-flex-row">
+        <li class="nav-item">
+            <a href="#about">About</a>
+        </li>
+        <li class="nav-item">
+            <a href="#reservation">Reservation</a>
+        </li>
+        <li class="nav-item">
+            <a href="#menu">Menu</a>
+        </li>
+        <li class="nav-item">
+            <a href="#shop">Shop</a>
+        </li>
+    </ul>
+</nav>
+<section class="section-intro">
+    <header>
+        <h1> Welcome To Spicy Hub</h1>
+    </header>
+    <div class="link-to-book-wrapper">
+        <a class="link-to-book"
+           href="#reservations">Book a table</a>
+    </div>
+</section>
+
+<section class="about-section">
+    <article>
+        <h3>
+           best for south Indian dishes
+        </h3>
+
+        <p>
+            the best food is served to the customers. we for hard for your satisfaction
+        </p>
+    </article>
+</section>
+
+<!-- carousel section -->
+<div id="carouselExampleControls"
+     class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="./img/item1.jpg"
+                 class="d-block w-100" alt="food">
+        </div>
+        <div class="carousel-item">
+            <img src="./img/item2.jpg"
+                 class="d-block w-100" alt="food">
+        </div>
+        <div class="carousel-item">
+            <img src="./img/item3.jpg"
+                 class="d-block w-100" alt="food">
+        </div>
+    </div>
+    <a class="carousel-control-prev"
+       href="#carouselExampleControls"
+       role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"
+                  aria-hidden="true">
+            </span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next"
+       href="#carouselExampleControls"
+       role="button" data-slide="next">
+            <span class="carousel-control-next-icon"
+                  aria-hidden="true">
+            </span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="container">
+    <div class="row-flex">
+        <div class="flex-column-form">
+            <h3>
+                Make a reservation
+            </h3>
+            <form class="media-centered">
+                <div class="form-group">
+                    <p>
+                        Please leave your details to make a reservation
+                    </p>
+
+                    <input type="name" class="form-control"
+                           id="exampleInputName1"
+                           aria-describedby="nameHelp"
+                           placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control"
+                           id="exampleInputphoneNumber1"
+                           placeholder="Enter your phone number">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+        </div>
+        <div class="opening-time">
+            <h3>
+                Opening times
+            </h3>
+            <p>
+                <span>Monday—Thursday: 08:00 — 22:00</span>
+                <span>Friday—Saturday: 09:00 — 23:00 </span>
+                <span>Sunday: 10:00 — 17:00</span>
+            </p>
+        </div>
+        <div class="contact-adress">
+            <h3>
+                Contact
+            </h3>
+            <p>
+                <span>9785246318</span>
+                <span>hydrabed, uppal</span>
+                <span>ram nagar</span>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+Q7
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous">
+    <title>myTunes</title>
+
+</head>
+
+<body>
+<!-- Showcase and Nav -->
+<div id="showcase">
+    <header>
+        <nav class='cf'>
+            <ul class='cf'>
+                <li class="hide-on-small">
+                    <a href="#showcase">Jiomusic</a>
+                </li>
+                <li>
+                    <a href='#showcase'>Overview</a>
+                </li>
+                <li>
+                    <a href='#music'>Music</a>
+                </li>
+                <li>
+                    <a href='#video'>Video</a>
+                </li>
+                <li>
+                    <a href='#gift-cards'>Gift Cards</a>
+                </li>
+            </ul>
+            <a href='#' id='openup'>myTunes</a>
+        </nav>
+    </header>
+    <div class="section-main container">
+        <h1>jioTunes</h1>
+        <h2>music,movies,Tv shows</h2>
+        <p class="lead hide-on-small">
+            non stop music. Jio music is the best music website, which includes movies, and never ending shows
+        </p>
+    </div>
+</div>
+
+<!-- Music Section -->
+<section id="music" class="section">
+    <div class="container">
+        <h2 class="section-head">
+            <i class="fas fa-music"></i> Music
+        </h2>
+        <h3>45 million songs. Zero ads.</h3>
+        <p class="lead">45000+ songs collection,
+            300+ movies,
+            more and
+            more Tv Shows</p>
+        <a href="#" class="btn btn-primary mb">Start Your Trial Now</a>
+        <p class="text-light">different playlists are available for different styles.</p>
+        <img src="./img/music1.jpg" alt="">
+    </div>
+</section>
+
+
+<section id="video" class="section bg-light">
+    <div class="container">
+        <h3>watch non shot shows and movies. unstopable collection</h3>
+        <p class="lead">best in the bussiness. there are 4000+ movies along with
+            many more TV shows. investing time in JioTunes is never a waste of time.
+            we are always here to make you. try JioTune you cantstop yourself watching
+            JioTunes</p>
+        <a href="#" class="btn btn-secondary">Read More</a>
+        <img src="./img/music2.jpg" alt="">
+    </div>
+</section>
+
+
+<section id="entertainment" class="section">
+    <div class="container">
+        <h3>brings the joy on your face .</h3>
+        <p class="lead">more and more to come. keep in touch with JioTune
+            it never stop you to entertain give free time for JioTunes
+            it will never waste your time.</p>
+    </div>
+</section>
+
+<!-- Gift Card Section -->
+<section id="gift-cards" class="section bg-light">
+    <div class="container">
+        <div class="gift-cards">
+            <div>
+                <img src="./img/music4.jpg" alt="">
+            </div>
+            <div>
+                <h2>Gift Cards</h2>
+                <p>
+                    not only entertainment it also gives you many more.
+                    get ready for extra gifts. win gift cards by registering for JioTune.
+                    get more and more gift cards for using JioTune money with entertainment
+                </p>
+                <p>Already have an Gift Card?</p>
+                <hr>
+                <a href="#" class="text-secondary">
+                    <i class="fas fa-chevron-right"></i> Redeem
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-cols">
+            <ul>
+                <li>Shop & Learn</li>
+                <li>
+                    <a href="#">Music</a>
+                </li>
+                <li>
+                    <a href="#">Movies</a>
+                </li>
+                <li>
+                    <a href="#">Shows</a>
+                </li>
+                <li>
+                    <a href="#">Apps</a>
+                </li>
+                <li>
+                    <a href="#">Gift Cards</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>Orange Store</li>
+                <li>
+                    <a href="#">Find a Store</a>
+                </li>
+                <li>
+                    <a href="#">Today at Orange</a>
+                </li>
+                <li>
+                    <a href="#">Orange Camp</a>
+                </li>
+                <li>
+                    <a href="#">Financing</a>
+                </li>
+                <li>
+                    <a href="#">Order Status</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>Education & Business</li>
+                <li>
+                    <a href="#">Orange & Education</a>
+                </li>
+                <li>
+                    <a href="#">Shop For College</a>
+                </li>
+                <li>
+                    <a href="#">Orange & Business</a>
+                </li>
+                <li>
+                    <a href="#">Shop For Business</a>
+                </li>
+                <li>
+                    <a href="#">Jobs</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>About Orange</li>
+                <li>
+                    <a href="#">Newsroom</a>
+                </li>
+                <li>
+                    <a href="#">Orange Leadership</a>
+                </li>
+                <li>
+                    <a href="#">Investors</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">Contact Orange</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="footer-bottom text-center">
+        Copyright &copy; 2019 Orange myTunes
+    </div>
+</footer>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>
+
+
+Css
+root {
+    --primary-color: black;
+    --primary-color-hover: #d3071b;
+    --secondary-color: #103063;
+    --secondary-color-hover: #143f85;
+    --light-color: #f4f4f4;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background-color: skyblue;
+    margin: 0;
+    color: grey;
+    line-height: 1.6;
+  }
+
+img {
+    width: 100%
+}
+
+a {
+    text-decoration: none;
+    color: #ccc;
+  }
+
+/* Section */
+.section {
+    padding: 2rem 0;
+  }
+
+.section-head {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.section h3 {
+    font-size: 2rem;
+}
+
+section#entertainment {
+    background: url(../img/music.jpg) no-repeat bottom/cover;
+    padding: 10rem 0;
+}
+
+.gift-cards {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+  }
+  /* Showcase */
+#showcase {
+    margin:0;
+    padding: 0;
+    background: url('../img/music6.jpg') no-repeat center/cover;
+    background-position:center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow-y: hidden;
+}
+
+#showcase .container {
+    margin-top: 25vh;
+}
+
+#showcase h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+#showcase h2 {
+    font-size: 2rem;
+  }
+
+  /* Footer */
+footer .footer-cols {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  footer .footer-cols ul {
+    list-style: none;
+  }
+
+  footer .footer-cols ul li:first-child {
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: #444 solid 1px;
+    margin-bottom: 1rem;
+  }
+
+  footer .footer-bottom {
+    background: #333;
+    padding: 1rem;
+  }
+
+/* Utility Classes */
+.container {
+    max-width: 1180px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+.lead {
+    font-size: 1.3rem;
+}
+
+.text-center {
+    text-align: center;
+  }
+
+
+/* Buttons */
+.btn {
+    padding: 1rem;
+    color: #fff;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--primary-color-hover);
+  }
+
+  .btn-secondary {
+    background: var(--secondary-color);
+  }
+
+  .btn-secondary:hover {
+    background: var(--secondary-color-hover);
+  }
+
+  /* Text colors */
+.text-primary {
+    color: var(--primary-color);
+  }
+
+  .text-secondary {
+    color: var(--secondary-color);
+  }
+
+  .text-light {
+    color: var(--light-color);
+  }
+
+  .bg-light {
+    background: var(--light-color);
+    color: #333;
+  }
+
+.mb {
+    margin-bottom: 1rem;
+  }
+
+  .mt {
+    margin-top: 1rem;
+  }
+
+  /* Navigation */
+  nav {
+    height: 40px;
+    width: 100%;
+    background-color: #333;
+    color: rgb(51, 34, 34);
+    position: fixed;
+  }
+  nav ul {
+    padding: 0;
+    margin: 0;
+  }
+  nav li {
+    display: inline;
+    float: left;
+  }
+  nav a {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
+    color: #eee;
+    text-decoration: none;
+  }
+  nav li:hover {
+    background-color: #444;
+  }
+  nav a#openup {
+    display: none;
+  }
+
+  @media screen and (max-width: 580px) {
+
+    .hide-on-small {
+        display: none;
+    }
+
+    #showcase {
+        height: 50vh;
+    }
+
+    #showcase .container {
+        margin-top: 15vh;
+    }
+
+    #showcase h1 {
+        font-size: 3rem;
+      }
+
+    #showcase h2 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+      height: auto;
+      border-bottom: 0;
+    }
+    nav ul {
+      display: none;
+      height: auto;
+    }
+    nav li {
+      width: 100%;
+      float: left;
+      position: relative;
+    }
+    nav a {
+      text-align: left;
+      width: 100%;
+      text-indent: 25px;
+      background: #333;
+      border-bottom: 1px solid #555;
+    }
+    nav a:hover {
+      background: #444;
+    }
+    nav a#openup:after {
+      content: "|||";
+      transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      /* IE 9 */
+      -webkit-transform: rotate(-90deg);
+      /* Safari and Chrome */
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      position: absolute;
+      right: 5px;
+      top: 20px;
+    }
+    nav a#openup {
+      display: block;
+      background-color: #333;
+      width: 100%;
+      position: relative;
+    }
+  }
+  .cf:before, .cf:after {
+    content: "";
+    display: table;
+  }
+
+  .cf:after {
+    clear: both;
+  }
+
+  .cf {
+    zoom: 1;
+  }
+
+  @media screen and (max-width: 780px) {
+    .gift-cards {
+      grid-template-columns: 1fr;
+    }
+
+    footer .footer-cols {
+      display: none;
+    }
+  }
+
+  @media screen and (max-height: 580px) {
+    #showcase p.lead {
+      display: none;
+    }
+  }}
+
+
+
+
+Q-8
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+         body, html{
+height: 100%;
+margin:0;
+font-size: 16px;
+font-family: "Lato", sans-serif;
+font-weight:400;
+height: auto;
+line-height:1.8em;
+color:#666;
+}
+fieldset{
+background-color:lightblue;
+
+}
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
+  background: #eee;
+  height: auto;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 30px 0px 40px rgba(0, 0, 0, 0.1),
+    -30px 0px 40px rgba(0, 0, 0, 0.1);
+}
+
+#landing {
+  background: #fff;
+}
+
+#landing-text {
+  display: flex;
+  flex: 0 1 40vw;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+#landing-text h2 {
+  color: #888;
+}
+
+#landing-image {
+  background: url('./img/bike.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+  flex: 0 1 60vw;
+  margin: 0;
+}
+#showcase .button{
+font-size:18px;
+text-decoration:none;
+color:black;
+border:maroon 1px solid;
+padding:10px 20px;
+border-radius:10px;
+text-size:center;
+margin-top:20px;
+}
+#showcase .button:hover{
+background:black;
+color:white;
+}
+.button {
+  padding: 0.5rem 2rem;
+  border: 1px #ccc solid;
+  display: inline-block;
+  margin: 2rem 0 0;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #333;
+  transition: background 500ms ease;
+}
+
+.button:hover {
+background:black;
+color:white;
+}
+
+#header {
+  padding: 1.5rem;
+  text-align: center;
+  background: #333;
+  color: #fff;
+}
+
+#header h2 {
+  border-left: dotted 1px #fff;
+  border-right: dotted 1px #fff;
+  display: inline-block;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.caption {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 700px){
+
+}
+footer {
+text-align:center;
+padding:50px 80px;
+color: Green;
+}
+
+    </style>
+</head>
+<body>
+<main>
+<fieldset>
+<div id="landing">
+    <div id="landing-text">
+        <div id="landing-text-inner">
+            <h1>Dyne PHotography</h1>
+    <h2>Lens is the third eye</h2>
+    <a href="#images" class="button">view work</a>
+        </div>
+    </div>
+    <div id="landing-image"></div>
+</div>
+</fieldset>
+
+
+    <div id="images">
+    <div id="header">
+        <h2>Our Work</h2>
+    </div>
+
+    <img src="./img/photo1.jpg" alt="">
+    <div class="caption">
+        <h3>Photo One</h3>
+        <p>Its like sketching a sketch</p>
+    </div>
+    <img src="./img/photo2.jpg" alt="">
+    <div class="caption">
+        <h3>Photo Two</h3>
+        <p>nature Lover</p>
+    </div>
+    <img src="./img/photo4.jpg" alt="">
+    <div class="caption">
+        <h3>Photo Three</h3>
+        <p>natural nature</p>
+    </div>
+        <img src="./img/photo3.jpg" alt="">
+        <div class="caption">
+            <h3>birds love</h3>
+            <p></p>
+        </div>
+
+</div>
+</main>
+
+<footer class="section section-light">
+    <h2>Get In Touch</h2>
+    <p>
+        Email or call us to set up a consult.</p>
+    <p>Email:photowork@gmail.com</p>
+    <p> Phone:9856321479
+    </p>
+</footer>
+
+</body>
+</html>
+

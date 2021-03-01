@@ -1,0 +1,1450 @@
+Q-1
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>SpringRest-Assignment1</display-name>
+  <welcome-file-list>
+    <welcome-file>HelloWorld.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  <servlet-name>rest-dispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>rest-dispatcher</servlet-name>
+  <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ 
+<context:component-scan base-package="com.spring.rest"></context:component-scan> 
+
+<context:annotation-config></context:annotation-config>
+
+ <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+ <property name="prefix">
+ <value>/WEB-INF/</value>
+ 
+ </property>
+ <property name="suffix">
+ <value>.jsp</value>
+ </property>
+ </bean>
+ </beans>
+
+
+
+package com.nishanth.rest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class Hello {@RequestMapping(value="/hello",method=RequestMethod.GET)
+public ModelAndView getHello() {
+	ModelAndView model = new ModelAndView("helloworld");
+	
+	return model;
+}
+}
+
+
+Hello World!!
+
+
+
+q-2
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>SpringRest-Assignment2</display-name>
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  <servlet-name>rest-dispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>restQ2-dispatcher</servlet-name>
+  <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ 
+<context:component-scan base-package="com.spring.rest"></context:component-scan> 
+
+<context:annotation-config></context:annotation-config>
+
+ <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+ <property name="prefix">
+ <value>/WEB-INF/</value>
+ 
+ </property>
+ <property name="suffix">
+ <value>.jsp</value>
+ </property>
+ </bean>
+ </beans>
+
+
+
+
+
+
+
+
+
+package com.spring.rest;
+
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class UserController {
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public ModelAndView getLogin() {
+		ModelAndView model = new ModelAndView("login");
+		
+		return model;
+	}
+	@RequestMapping(value="/logincheck",method=RequestMethod.POST)
+	public ModelAndView checkAuthentication(@RequestParam("user") String u,@RequestParam("password") String p) {
+		ArrayList<User>l = new ArrayList<User>();
+		ModelAndView mv = new ModelAndView();
+		User user1 = new User();
+		User user2 = new User(); 
+		user1.setUser("nishanth");
+		user1.setPassword("super");
+		user2.setUser("chintu");
+		user2.setPassword("win");
+		l.add(user1);
+		l.add(user2);
+		for(User t: l) {
+			if(u.equals(t.getUser()) && p.equals(t.getPassword())) {
+				ModelAndView model = new ModelAndView("success");
+	        	return model;
+	        }
+	        Else
+	        {
+	        	ModelAndView model = new ModelAndView("error");
+	        	return model;
+	        }
+	}
+		return null;
+
+}
+}	
+
+
+
+package com.spring.rest;
+
+import java.util.ArrayList;
+
+public class UserDB {
+	public ArrayList<User>l = new ArrayList<User>();
+	public ArrayList setDatabase() {
+	User user1 = new User();
+	User user2 = new User(); 
+	user1.setUser("nishanth");
+	user1.setPassword("super");
+	user2.setUser("chintu");
+	user2.setPassword("win");
+	l.add(user1);
+	l.add(user2);
+	return l;
+
+}
+}
+
+
+
+
+package com.spring.rest;
+
+public class User {
+	 public String user;
+	 public String password;
+	 public String getUser() {
+	 	return user;
+	 }
+	 public void setUser(String user) {
+	 	this.user = user;
+	 }
+	 public String getPassword() {
+	 	return password;
+	 }
+	 public void setPassword(String password) {
+	 	this.password = password;
+	 }
+
+}
+
+
+
+
+
+
+
+<html>
+<body>
+
+<form action="/SpringRest-Assignment2/logincheck" method ="post">
+  <table>
+  <tr>
+     <td> UserName : </td><td><input type="text" name="user"/></td>
+  </tr>
+  <tr>
+     <td> Password : </td><td><input type="text" name="password"/></td>
+  </tr>
+
+<tr><td><input type="submit" value="login"/></td></tr>
+
+</table>
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+Login Successful!!
+
+
+Wrong Credentials!! Please try again:)
+
+
+
+
+
+
+
+Q-3
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Rest-assignmentQ3</display-name>
+   <servlet>
+  <servlet-name>restQ3-dispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>restQ3-dispatcher</servlet-name>
+  <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/restQ9-dispatcher-servlet.xml</param-value>
+	</context-param>
+ 
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+  
+</web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package com.spring.Rest03;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController 
+public class CountryController
+{
+		@RequestMapping(value="/country/{zipcode}",method= RequestMethod.GET,headers="Accept=application/json")
+		public Countrymodel getCountryById(@PathVariable int zipcode)
+		{
+			List<Countrymodel> listOfCountries= new ArrayList();
+			listOfCountries=createCountryList();
+			
+			for(Countrymodel country:listOfCountries)
+			{
+				if(country.getZipcode()==zipcode)
+					return country;
+			}
+			return null;
+		}
+
+		@RequestMapping("/getInfo")
+		public Countrymodel getCountry(@RequestParam("code") String zcode)
+		{
+			long zipcode=Integer.parseInt(zcode);
+			List<Countrymodel> listOfCountries= new ArrayList();
+			listOfCountries=createCountryList();
+			
+			for(Countrymodel country:listOfCountries)
+			{
+				if(country.getZipcode()==zipcode)
+					return country;
+			}
+			return null;
+		}
+		
+		
+		private List createCountryList() 
+		{
+			Countrymodel m1=new Countrymodel(506015,"Telengana","Warangal","India");
+			Countrymodel m2=new Countrymodel(506014,"AP","Guntur","India");
+			Countrymodel m3=new Countrymodel(506013,"Maharastra","Mumbai","India");
+			Countrymodel m4=new Countrymodel(506031,"TN","Chennai","India");
+			
+			  List<Countrymodel> listOfCountries = new ArrayList();
+		        listOfCountries.add(m1);
+		        listOfCountries.add(m2);
+		        listOfCountries.add(m3);
+		        listOfCountries.add(m4);
+		        return listOfCountries;
+			
+		}
+	
+	
+}
+
+
+
+
+
+
+
+package com.spring.Rest03;
+
+public class Countrymodel {
+	private int zipcode;
+	private String city;
+	private String state;
+	private String country;
+
+	public int getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	@Override
+	public String toString() {
+		return "CountryModel [zipcode=" + zipcode + ", city=" + city + ", state=" + state + ", country=" + country
+				+ "]";
+	}
+	public CountryModel(int zipcode, String city, String state, String country) {
+		super();
+		this.zipcode = zipcode;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+
+<html>
+	<body>
+	<h2>Information Of a ZipCode</h2>
+	<form action="/ Rest-assignmentQ3/getInfo">
+	
+
+	<table>
+	<tr>
+	<td>Zipcode</td>
+	<td><input type="text" name="code"/></td>
+	</tr>
+	
+
+	<tr>
+	<td colspan="2"><button type="submit">Get Info</button>
+	</td>
+	</tr>
+	
+
+	</table>
+	
+
+	
+	
+
+	</form>
+	
+	</body>
+	</html>
+
+
+
+
+
+
+
+Q-4
+
+
+
+package com.spring.rest4;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CreditCardValidator {
+	@Autowired
+	CreditService service;
+	
+	@RequestMapping(value="/validate", method=RequestMethod.PUT)
+	public CreditCard validate(@RequestParam("credit_card") String card) {
+		CreditCard check = service.validate(card);
+		return check;
+	}
+	
+	
+
+
+
+
+      @RequestMapping("/check")
+	public String checking() {
+		String s = service.check();
+		return s;
+	}
+
+
+
+package com.spring.rest4;
+
+public class CreditCard {
+	private boolean valid = false;
+	private String type = "NoType";
+	
+	public CreditCard()
+	{
+		
+	}
+
+	public CreditCard(boolean valid, String type) {
+		super();
+		this.valid = valid;
+		this.type = type;
+	}
+
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "CreditCard [valid=" + valid + ", type=" + type + "]";
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+
+package com.spring.rest4;
+
+public class CreditService {
+private CreditCard card1=new CreditCard();
+	
+	public CreditCard validate(String number) { 
+		if(number.length() == 15) {
+		 
+			card1.setType("JCB");
+			card1.setValid(true);
+			
+		}
+		else if(number.length() <=19 && number.length()>=16) {
+			
+			if(number.length()==16) {
+				
+				card1.setType("Visa");
+				card1.setValid(true);
+			}
+			card1.setType("MasterCard");
+			card1.setValid(true);
+		}
+		return card1;
+		}
+		public String check() {
+			return "Working Fine";
+		}
+
+}
+
+
+
+ackage com.spring.rest4;
+
+@SpringApllication
+public class Application {
+	public static void main(String[] args)
+	{
+		
+		SpringApplication.run(App.class, args);
+
+	}
+
+}
+
+
+
+
+
+Q-5
+package com.spring.rest5;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.spring.rest5.Employee;
+
+
+@RestController
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@RequestMapping("/employees")
+	public List<Employee> getAllEmployees() {
+		return employeeService.getAllEmployees();
+	}
+	@RequestMapping("/employees/{id}")
+	public Employee getEmployee(@PathVariable String id) {
+		return employeeService.getEmployee(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/employees")
+	public void addEmployee(@RequestBody Employee employee) { 
+		employeeService.addEmployee(employee);
+	}
+
+	@RequestMapping(method=RequestMethod.PUT, value="/employees/{id}") 
+	public void updateEmployee(@RequestBody Employee employee, @PathVariable String id) { 
+		employeeService.updateEmployee(id, employee);
+	}
+
+	@RequestMapping(method=RequestMethod.DELETE, value="/employees/{id}") 
+	public Employee deleteEmployee(@PathVariable String id) { 
+		return employeeService.getEmployee(id); }
+
+}
+
+
+
+
+package com.spring.rest5;
+
+public class Employee {
+	private String id;
+	private String name;
+	private String department;
+	private String designation;
+	private String salary;
+	
+	public Employee() {
+
+	}
+
+	public Employee(String id, String name, String department, String designation, String salary) {
+		super();
+		this.id = id;
+        this.name = name; 
+        this.department = department;
+        this.designation = designation;
+        this.salary = salary;
+	}
+
+	
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public String getDesignation() {
+		return designation;
+	}
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	public String getSalary() {
+		return salary;
+	}
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+
+}
+
+
+
+package com.spring.rest5;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class EmployeeService {
+	private List<Employee> employees = new ArrayList<>(Arrays.asList(
+			new Employee("E1","spring", "Spring Fronework", "Spring Franenork Description", "35000"), 
+            new Employee("E2","java", "Core Java", "Core Java Description","45000"),
+            new Employee("E3","javascript", "JavaScript", "JavaScript Description","50000")
+            ));
+	public List<Employee> getAllEmployees() {
+		return employees;
+	}
+	public Employee getEmployee(String id) {
+		return employees.stream().filter(t -> t.getId().equals(id)).findFirst().get();
+	}
+	
+	public void addEmployee(Employee employee) { 
+		employees.add(employee);
+	}
+
+	public void updateEmployee(String id, Employee employee) {
+		for (int i = 0; i < employees.size(); i++) {
+			Employee t = employees.get(i);
+			if (t.getId().equals(id)) {
+				employees.set(i, employee);
+				return;
+				
+			}
+		}
+	}
+	public void deleteEmployee(String id) { 
+		employees.removeIf(t -> t.getId().equals(id));
+	}
+
+
+}
+
+
+
+
+package com.spring.rest5;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+}
+
+
+
+Q-6
+
+package com.spring.rest6;
+
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+public class MathController {
+	@Autowired
+	RestTemplate template;
+	@Autowired
+	MathService service;
+	
+	@RequestMapping(value = "/consume/add", method=RequestMethod.POST)
+	public String add(@RequestBody Maths ms) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		
+		HttpEntity<Maths> entity = new HttpEntity<Maths>(ms,headers);
+		return template.exchange("http://localhost:8080/add", HttpMethod.POST, entity, String.class).getBody();
+	}
+	@RequestMapping(value = "/add",method = RequestMethod.POST)
+	public long check(@RequestBody Maths ms) {
+		
+		return service.add(ms.getN1(), ms.getN2());
+	}
+
+}
+
+
+
+package com.spring.rest6;
+
+public class Maths {
+	private long n1;
+	private long n2;
+	public Maths() {
+		
+	}
+	public Maths(long n1, long n2) {
+		super();
+		this.n1 = n1;
+		this.n2 = n2;
+	}
+	public long getN1() {
+		return n1;
+	}
+	public void setN1(long n1) {
+		this.n1 = n1;
+	}
+	public long getN2() {
+		return n2;
+	}
+	public void setN2(long n2) {
+		this.n2 = n2;
+	}
+	
+	
+}
+
+
+
+
+package com.spring.rest6;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class MathService {
+	public long add(long n1,long n2) {
+		return n1+n2;
+	}
+	public long subtract(long n1,long n2) {
+		return n1-n2;
+	}
+	public long multiply(long n1,long n2) {
+		return n1*n2;
+	}
+	public double division(double n1,double n2) {
+		if(n2!=0) {
+			return n1/n2;
+		}
+		return 0;
+	}
+	public double sqrt(double n) {
+		return Math.sqrt(n);
+	}
+}
+
+
+
+
+package com.spring.rest6;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
+
+@SpringBootApplication
+public class Application {
+	public static void main(String[] args) {
+		SpringApplication.run(App.class, args);
+	}
+	@Bean
+	public RestTemplate getRestTemp() {
+		return new RestTemplate();
+	}
+}
+
+
+
+Q-7
+
+package com.spring.rest7;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+public class orderController {
+	@Autowired
+	private orderService orderService;
+	
+	@RequestMapping("/orders")
+	public List<Order> getAllOrders()
+	{
+		return orderService.getAllOrders();
+	}
+	
+	@RequestMapping("/orders/{id}")
+	public Order getOrder(@PathVariable String id)
+	{
+		return orderService.getOrder(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/orders")
+	public void addOrder(@RequestBody Order order)
+	{
+		orderService.addOrder(order);
+	}
+	
+	@RequestMapping(method=RequestMethod.PUT,value="/orders/{id}")
+	public void updateOrder(@RequestBody Order order,@PathVariable String id)
+	{
+		orderService.updateOrder(id,order);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE,value="/orders/{id}")
+	public void deleteOrder(@RequestBody Order order,@PathVariable String id)
+	{
+		orderService.deleteOrder(id,order);
+	}
+	
+	
+}
+
+
+
+package com.spring.rest7;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+	@RequestMapping("/hello")
+	public String sayHi()
+	{
+		return "Hello";
+	}
+
+}
+
+
+
+
+
+package com.spring.rest7;
+
+@Entity
+@Document(collection="orders")
+public class Order {
+	@Id
+	private String id;
+	private String title;
+	private String description;
+	private boolean placed;
+	
+	public Order()
+	{
+		
+	}
+	
+	
+
+	public Order(String title, String description, boolean placed) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.placed = placed;
+	}
+
+
+
+	public String getid() {
+		return id;
+	}
+
+	public void setOrderId(String id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isPlaced() {
+		return placed;
+	}
+
+	public void setPlaced(boolean placed) {
+		this.placed = placed;
+	}
+
+
+
+}
+
+
+
+
+package com.spring.rest7;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class orderService {
+	@Autowired
+	 orderRepository orderRepository;
+
+	public List<Order>getAllOrders()
+	{
+		List<Order> orders=new ArrayList<>();
+		orderRepository.findAll().forEach(orders::add);
+		return orders;
+	}
+
+	public Order getOrder(String id) {
+		return orderRepository.findOne(id);
+	}
+
+	public void addOrder(Order order) {
+		
+		 orderRepository.save(order);
+	}
+
+	public void updateOrder(String id, Order order) {
+		
+		orderRepository.save(order);
+	}
+
+	public void deleteOrder(String id, Order order) {
+		
+		orderRepository.delete(id);
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package com.spring.rest7;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class orderRepository {
+	
+//		List<Order>findByTitle(String title);
+		//List<Order>findByPlaced(boolean placed);
+	
+
+}
+
+
+
+package com.spring.rest7;
+
+@SpringBootApplication
+public class Application {
+	public static void main(String args[])
+	{
+		SpringApplication.run(orderAPI.class, args);
+	}
+
+}
+
+
+
+
+
+Q-8
+
+package com.spring.rest8;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class productController {
+	@Autowired
+	private productService productService;
+	
+	@RequestMapping("/products")
+	public List<Product> getAllProducts()
+	{
+		return productService.getAllProducts();
+	}
+	
+	@RequestMapping("/products/{id}")
+	public Product getProduct(@PathVariable String id)
+	{
+		return productService.getProduct(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/products")
+	public void addProduct(@RequestBody Product product)
+	{
+		productService.addProduct(product);
+	}
+	
+	@RequestMapping(method=RequestMethod.PUT,value="/products/{id}")
+	public void updateProduct(@RequestBody Product product,@PathVariable String id)
+	{
+		productService.updateProduct(id,product);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE,value="/products/{id}")
+	public void deleteOrder(@RequestBody Product product,@PathVariable String id)
+	{
+		productService.deleteProduct(id,product);
+	}
+
+}
+
+
+
+package com.spring.rest8;
+
+@Entity
+@Document(collection="products")
+public class Product {
+	@Id
+	private String id;
+	private String title;
+	private String description;
+	private boolean placed;
+	
+	public Product()
+	{
+		
+	}
+	
+	
+
+	public Product(String title, String description, boolean placed) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.placed = placed;
+	}
+
+
+
+	public String getid() {
+		return id;
+	}
+
+	public void setProductId(String id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isPlaced() {
+		return placed;
+	}
+
+	public void setPlaced(boolean placed) {
+		this.placed = placed;
+	}
+
+
+
+}
+
+
+package com.spring.rest8;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class productService {
+	@Autowired
+	productRepository productRepository;
+
+	public List<Product>getAllProducts()
+	{
+		List<Product> products=new ArrayList<>();
+		productRepository.findAll().forEach(products::add);
+		return products;
+	}
+
+	public Product getProduct(String id) {
+		return productRepository.findOne(id);
+	}
+
+	public void addProduct(Product product) {
+		
+		productRepository.save(product);
+	}
+
+	public void updateProduct(String id, Product product) {
+		
+		productRepository.save(product);
+	}
+
+	public void deleteProduct(String id, Product product) {
+		
+		productRepository.delete(id);
+		
+	}
+
+
+}
+
+
+package com.spring.rest8;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface productRepository extends MongoRepository<Product,String>
+{
+//	List<Order>findByTitle(String title);
+	//List<Order>findByPlaced(boolean placed);
+}
+
+
+
+package com.spring.rest8;
+
+@SpringBootApplication
+public class Application {
+	public static void main(String args[])
+	{
+		SpringApplication.run(App.class, args);
+	}
+
+}
+
+
+
+
+
+
+
+
+Q-9
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Rest-assignmentQ9</display-name>
+   <servlet>
+  <servlet-name>restQ9-dispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>restQ9-dispatcher</servlet-name>
+  <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ 
+<context:component-scan base-package="com.spring.restQ9"></context:component-scan> 
+
+<context:annotation-config></context:annotation-config>
+
+ <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+ <property name="prefix">
+ <value>/WEB-INF/</value>
+ 
+ </property>
+ <property name="suffix">
+ <value>.jsp</value>
+ </property>
+ </bean>
+ </beans>
+
+
+
+package com.spring.restQ9;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class CustomerController {
+	private List<Customer> customers = Arrays.asList(
+			new Customer("c1","ram","India"),
+			new Customer("c2","Arjun","USA"),
+			new Customer("c3","Krishna","Uk")
+			);
+	@RequestMapping(value="/customers", method=RequestMethod.GET)		
+	public List<Customer> getAllCustomers(){
+		return customers;
+	}
+	@RequestMapping(value="/customers/{id}",method=RequestMethod.GET)
+	public Customer getCustomer(@PathVariable String id) {
+		return customers.stream().filter(t->t.getId().equals(id)).findFirst().get();
+	}
+
+	@RequestMapping(value="/customers",method=RequestMethod.POST)
+	public void addCustomer(@RequestBody Customer customer ) {
+		customers.add(customer);
+		
+	}
+
+	@RequestMapping(value="/customers/{id}",method=RequestMethod.PUT)
+	public void updateCustomer(@PathVariable String id,@RequestBody Customer customer) {
+		for (int i=0;i<customers.size();i++) {
+			Customer t = customers.get(i);
+			if (t.getId().equals(id)) {
+				customers.set(i,customer);
+			}
+		}
+		
+	}
+
+	@RequestMapping(value="/customers/{id}",method=RequestMethod.DELETE)
+	public void deleteCustomer(@PathVariable String id) {
+		customers.removeIf(t->t.getId().equals(id));
+	}
+
+
+}
+
+
+
+package com.spring.restQ9;
+
+public class Customer {
+	private String id;
+	private String name;
+	private String country;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", country=" + country + "]";
+	}
+	public Customer(String id, String name, String country) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.country = country;
+	}
+	
+	
+
+}
+
+	
+

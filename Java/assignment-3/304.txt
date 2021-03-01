@@ -1,0 +1,93 @@
+3-4
+import java.util.HashMap;
+import java.util.Map;
+
+public class Dateclass {
+    private int date;
+    private int month;
+    private int year;
+
+    public DataClass(int date, int month, int year) {
+        this.date = date;
+        this.month = month;
+        this.year = year;
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return "DataClass{" +
+                "date=" + date +
+                ", month=" + month +
+                ", year=" + year +
+                '}';
+    }
+}
+
+public class Assignment3Q4 {
+    public String getEmployee(HashMap<Dateclass,String>dob,String employeeName){
+        for (Map.Entry k: dob.entrySet()){
+            if (k.getValue() == employeeName){
+                System.out.println("Employee Data: " + k.getKey().toString()+":"+k.getValue());
+            }
+        }
+
+        return employeeName;
+    }
+    public static void main(String[] args) {
+        Assignment3Q4 obj = new Assignment3Q4();
+
+        Dateclass a = new Dateclass(19,05,1998);
+        Dateclass b = new Dateclass(14,01,2002);
+        Dateclass c = new Dateclass(2,05,2001);
+        Dateclass d = new Dateclass(31,10,2000);
+
+        HashMap<Dateclass, String> hashMap = new HashMap<>();
+        hashMap.put(a, "Ram" );
+        hashMap.put(b, "Arjun" );
+        hashMap.put(c, "Krishna" );
+        hashMap.put(d, "Sai" );
+        System.out.println("The Employees List: ");
+
+        for (Map.Entry<Dateclass, String> dataClassStringEntry : hashMap.entrySet()) {
+            System.out.println(((Map.Entry) dataClassStringEntry).getKey() + ":" + ((Map.Entry) dataClassStringEntry).getValue());
+
+        }
+
+    }
+}
+
+
