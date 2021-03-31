@@ -1,0 +1,204 @@
+1
+function print(str){
+  "use strict";
+ 
+  const sentence = str + " " + "how are you";
+  sentence = str + " " + " how was the day";
+    for (let i = 1; i < str.length; i += 2) {
+        console.log(sentence);
+        }
+    }
+    print("Ram");
+
+
+Output:
+
+Uncaught TypeError: Assignment to constant variable.
+
+
+
+2
+<html>
+<head>
+<script type="text/javascript" src="scripts/tutorial..js">
+</script>
+
+
+</head>
+<body>
+</body>
+</html>
+
+
+JS
+var a=1;
+
+var b=2;
+
+if(a === 1){
+
+var a=10;
+
+let b=20;
+
+console.log(a);
+
+console.log(b);
+
+}
+
+console.log(a);
+
+console.log(b);
+
+
+
+3
+let id=1;
+let title="T-shirt";
+let price=1000;
+
+var Order=
+{
+  id:id,
+  title:title,
+  price:price
+};
+
+//const new_obj = Object.assign({}, Order);
+//console.log(new_obj);
+function printOrder()
+{
+console.log(Order);
+}
+printOrder()
+
+function getprice()
+{
+  console.log(Order.price);
+}
+getprice();
+
+
+
+4
+let ar=['tom','Ivan','Jerry'];
+
+    for (let i in ar){
+    console.log("name:"+ar[i],
+    "length:" +ar[i].length);
+};
+
+
+
+5
+A
+let getValue = function(a=10, b=5){ 
+                       console.log(a+b); 
+};
+getValue(20,30);
+
+b
+let displayFriends = function(username, ...arrays) {
+console.log(username);
+for (let i in arrays) { 
+  console.log(arrays[i]);
+}
+}
+let username = "userName"
+
+displayFriends(username, ['Ram', 'Arjun', 'Krishna']);
+
+c
+
+let displayColors=function(...colours){
+    for(let i in colours){
+        console.log(colours[i].toUpperCase());
+    }
+}
+let colourArray=["ram", "Arjun", "Krishna", "karna"];
+displayColors(...colourArray);
+
+
+
+
+
+
+
+
+
+6
+
+let model = "tx110";
+let desktopNo = "1414"
+let userName = "Ram";
+let ticket = `battery is dead for model: ${model}, desktop no: ${desktopNo}, customer name: ${userName}`;
+console.log(ticket);
+
+
+
+
+
+
+
+7
+a
+let name = ["sun", "run", "win", "won"];
+let [, , element3, ] = name;
+
+console.log(element3);
+
+
+b
+
+let org = {
+  name : "Ram",
+  address : {  
+  city: "Warangal",
+  state: "Telengana",
+  zipCode: "506015"
+}
+}
+let {name, address} = org;
+console.log(name);
+ console.log(address.zipCode);
+
+8
+class Account{
+    balance: any;
+    constructor(id,name,balance){
+        id= this.id;
+        name = this.name;
+        balance  = this.balance;
+    }
+    }
+    class SavingAccount extends Account {
+        interest: any;
+        cash_credit: any;
+        constructor(id,name,balance,interest,cash_credit){
+              super(id,name,balance);
+              interest = this.interest;
+              cash_credit = this.cash_credit;
+        }
+          showName(){
+              let n = this.name;
+            console.log(n); 
+        }
+        showBalance = ()=>{let b = this.interest*this.cash_credit
+        console.log('the balance in your account is: '+b);}
+    }
+    class CurrentAccount extends Account {
+        interest: any;
+        cash_credit: any;
+        constructor(id,name,balance,interest,cash_credit){
+              super(id,name,balance);
+              interest = this.interest;
+              cash_credit = this.cash_credit;
+        }
+        showBalance = ()=>{let b = this.interest*this.cash_credit
+        console.log('the balance in your account is: '+b);}
+    }
+    var p = new SavingAccount(1,'Tom',10000,0.5,2000);
+    p.showBalance();
+    p.showName();
+
